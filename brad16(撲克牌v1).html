@@ -1,0 +1,28 @@
+<script>
+ let poker = [];
+
+ for(let i=0;i<52;i++){
+     let rand = parseInt(Math.random()*52+1) // 0-51
+     //檢查機制 避免重複
+     let isRepeat = false;
+     for(let j=0; j<i;j++){
+
+        // 如果重複isRepeat變為true
+         if(poker[j] == rand){
+            isRepeat = true;
+            break;
+         }
+     }
+     //有重複會進此判斷 此時直接把重複值 -- 之後continue
+     if(isRepeat){
+         i--;
+         continue;
+     }
+     poker[i] = rand;
+ }
+
+ for(let i in poker){
+     document.write(poker[i] + '<br>')
+ }
+
+</script>

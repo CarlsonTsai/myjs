@@ -1,0 +1,42 @@
+<script>
+    let a = [1, 2, 3, 4]
+    document.write(typeof (a) + ":" + a.length + "<br>");
+    a[4] = 123;
+    document.write(a[4] + '<br>')
+    document.write(a.length + '<br>')
+    document.write('<hr>')
+
+
+    let p1, p2, p3, p4, p5, p6;
+    p1 = p2 = p3 = p4 = p5 = p6 = 0;
+
+    for (let i = 0; i < 100; i++) {
+        var dice = parseInt(Math.random() * 6 + 1)
+
+        switch (dice) {
+            case 1: p1++; break;
+            case 2: p2++; break;
+            case 3: p3++; break;
+            case 4: p4++; break;
+            case 5: p5++; break;
+            case 6: p6++; break;
+        }
+    }
+    document.write(p1 + '<br>')
+    document.write(p2 + '<br>')
+    document.write(p3 + '<br>')
+    document.write(p4 + '<br>')
+    document.write(p5 + '<br>')
+    document.write(p6 + '<br>')
+    document.write('<hr>')
+
+    let p = [0,0,0,0,0,0,0]
+    for(let i=0;i<10000;i++){
+    var dice1 = parseInt(Math.random() * 9) +1;
+    p[dice1<=6?dice1:dice1-3]++;  
+
+    }
+    for(let i=1;i<p.length;i++){
+        document.write(`${i}:${p[i]} times <br>`)
+    }
+</script>

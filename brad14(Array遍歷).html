@@ -1,0 +1,14 @@
+<script>
+    let a = [1,2,3,4,5];
+    // a第10個值為11  值6-10會是undefined
+    a[10] = 11; 
+    for(let i=0;i<a.length;i++){
+        document.write(a[i]+"<br>")
+    }
+    document.write("<hr>")
+
+    for(let i in a){
+        document.write(a[i] + '<br>')
+    }
+
+</script>
