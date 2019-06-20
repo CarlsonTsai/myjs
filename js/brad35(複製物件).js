@@ -1,0 +1,29 @@
+    // obj = {
+    //     name:'brad',
+    //     age:'18',
+    // }
+
+    // document.write(`${obj.name} : ${obj.age} <br>`)
+
+    // let obj1 = new Object();
+    // document.write(`${obj1.name} : ${obj1.age} <br>`)
+
+    // for(let attr in obj){
+    //     obj1[attr] = obj[attr];
+    // }
+    // document.write(`${obj1.name} : ${obj1.age} <br>`)
+
+
+
+    function clone(source){
+        if(typeof(source) != 'object') return null;
+
+        let target = new Object();
+        for(let attr in source){
+            target[attr] = source[attr]
+        }
+        return target;
+    }
+
+
+

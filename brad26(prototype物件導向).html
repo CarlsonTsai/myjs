@@ -1,0 +1,73 @@
+<script>
+// 物件的源頭    
+// 屬性 例:手機的規格型號   
+// 方法 例:手機上的功能 ， 方法可共用
+// 屬性的運作需透過方法處理 例: 屬性=體重過重   方法=運動減肥
+
+let bike = new Object();
+bike.speed = 12; //速度
+bike.gear = 2; //檔位
+
+bike.upSpeed = function(){
+    //this指向的是當前bike這個物件
+    this.speed = this.speed * this.gear *1.2;
+}
+bike.downSpeed = function(){
+    this.speed = this.speed * 0.7;
+}
+
+document.write(bike.speed + "<br>")
+bike.upSpeed();
+document.write(bike.speed + "<br>")
+bike.downSpeed();
+document.write(bike.speed + "<br>")
+// 以上ES5
+document.write('----------------------------' + '<br>')
+
+let bike2 = {
+    speed:4,
+    gear:4,
+    upSpeed:function(){
+        this.speed = this.speed * this.gear *1.2;
+    },
+    downSpeed:function(){
+        this.speed = this.speed * 0.7;
+    }
+}
+
+document.write(bike2.speed + "<br>")
+bike2.upSpeed();
+document.write(bike2.speed + "<br>")
+bike2.downSpeed();
+document.write(bike2.speed + "<br>")
+document.write('----------------------------' + '<br>')
+
+//以下其他呼叫的方法
+bike2['upSpeed']();
+document.write(bike2.speed + "<br>")
+
+document.write('----------------------------' + '<br>')
+
+//此呼叫方法可用變數呼叫
+let method = 'upSpeed'
+bike2[method]();
+document.write(bike2.speed + "<br>")
+
+document.write('<hr>')
+
+// 迴圈遍例物件
+for(let key in bike2){
+    document.write(key+ '<br>')
+}
+
+
+//----------------------
+document.write('<hr>')
+var carlson = 123;
+var bb = 12345;
+
+for(let key in window){
+    document.write(document[key])
+}
+
+</script>

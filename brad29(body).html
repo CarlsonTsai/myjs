@@ -1,0 +1,56 @@
+<script>
+    //建立一個新的body
+    let body = document.createElement('body');
+    document.body = body;
+
+    let head = document.createElement('h1');
+    // head.innerHTML = "Bread Big Company"
+    // document.body.appendChild(head);
+
+
+    let h1text = document.createTextNode('Hello,World')
+    head.appendChild(h1text);
+
+    document.body.appendChild(head);
+    h1text.textContent = "Hello Brad";
+
+    let hr = document.createElement('hr')
+    document.body.appendChild(hr);
+
+
+    let ul = document.createElement('ul');
+    body.appendChild(ul);
+
+    let tempLi;
+    let a;
+
+    for(let i=0;i<3; i++){
+        let li = document.createElement('li');
+        li.innerHTML = `第${i+1}的內容資料`
+        ul.appendChild(li)
+
+        // i 是第二個li 把第二li傳出去
+        if(i==1) tempLi = li ;
+    }
+
+    //去掉 第2個 li
+    ul.removeChild(tempLi);
+
+
+    // 新增 1個hr
+    let hr2 = hr.cloneNode();
+    body.appendChild(hr2);
+
+
+    let u12 = u1.cloneNode();
+    body.appendChild(u12);
+    for(let i=0;i<3; i++){
+        let li = document.createElement('li');
+        li.innerHTML = `第${i+1}的內容資料`
+        ul.appendChild(li)
+
+        // i 是第二個li 把第二li傳出去
+        if(i==1) tempLi = li ;
+    }
+</script>
+

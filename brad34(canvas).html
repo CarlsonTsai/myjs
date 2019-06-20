@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id='head'></h1>
+    <hr>
+    <canvas id="canvas" width="480" height="320" style="border: 1px solid black"></canvas>
+    <button onclick="clearCanvas()">清除</button>
+    <script>
+        head.innerHTML = 'aaa'
+
+        let ctx = canvas.getContext('2d')
+
+        let isDrag = false;
+
+        canvas.onmouseup = function (e) {
+            console.log('x' + e.offsetX + 'y' + e.offsetY);
+            isDrag = false;
+        }
+        canvas.onmousedown = function (e) {
+            isDrag = true;
+            ctx.strokeStyle = 'rgb(0,0,255)';
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY)
+        }
+        canvas.onmousemove = function (e) {
+            if (isDrag) {
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+
+            }
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+        }
+
+       
+
+    </script>
+</body>
+
+</html>
