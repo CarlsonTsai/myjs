@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <button onclick="sendTest()">clike me</button>
+    <input type="number" id="max"/>
+    <div id='re'></div>
+    <script>
+        let xhttp = new XMLHttpRequest();
+
+
+        function callback() {
+            let state = xhttp.readyState;
+            let status = xhttp.status;
+
+            console.log('back' + state )
+
+            if(state ==4){
+                if(status ==200){
+                    console.log("data =>" + xhttp.responseText);
+                    document.getElementById('re').innerHTML = xhttp.responseText
+                }
+            }
+        };
+
+        function sendTest() {
+            let max = document.getElementById('max').value;
+            xhttp.onreadystatechange = callback;
+            xhttp.open("GET", "brad01.php?max=" + max, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

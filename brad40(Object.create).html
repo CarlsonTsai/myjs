@@ -1,0 +1,54 @@
+<script src="js/brad35(複製物件).js"></script>
+<script>
+    // 建構式的目的屬性初始化
+
+    let person = {
+        name: '',
+        mybike: Object.create(bike)
+    }
+
+    let bike = {
+        a: 11,
+        b: 22,
+        m1: function () {
+            console.log("bike:m1()" + this.a);
+        }
+    }
+
+    //方法1 
+    let b1 = Object.create(bike);
+    for (let key in b1) {
+        console.log('b1 ' + key + ':' + b1[key])
+    }
+
+
+    //方法2
+    // 相當於 new Object()
+    //顯示會是空物件{} 因為不是建構式沒初始化 所以裡面為空
+    let b2 = bike.constructor();
+    console.log('b2 ' + b2)
+    console.log('-----------')
+    let b3 = clone(bike);
+    for (let key in b3) {
+        console.log('b3 ' + key + ':' + b3[key])
+    }
+
+    let p1 = clone(person)
+    p1.name = 'Brad'
+    p1.mybike.a = 33;
+    console.log(p1)
+
+
+    let p2 = clone(person)
+    p2.name = 'kevin'
+    p2.mybike.a = 22;
+    console.log(p2)
+
+    // p1的 p1.mybike 屬性被p2的mybike 更改 為何?
+    // 因為 mybike:Object.create(bike) 都是使用相同物件並沒有初始化
+    // 如何解決? js/brad35(複製物件).js clone 方法 額外做判斷。
+
+    p1.mybike.m1();
+    p2.mybike.m1();
+
+</script>

@@ -1,0 +1,18 @@
+<script>
+    let f = function(){
+        //設定初始化值
+        this.a = 1;
+        this.b = 2;
+    }
+
+    let obj = new f();  // 產生{a:1,b:2} 物件
+    console.log(obj.a + ":" + obj.b)
+
+   
+    f.prototype.b = 3;
+    f.prototype.c = 4;
+
+    console.log(obj.a)
+    console.log(obj.b)
+    console.log(obj.c)
+</script>

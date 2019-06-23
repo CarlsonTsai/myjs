@@ -1,0 +1,32 @@
+<script>
+    let person ={
+        name:'Brad',
+        age:'18',
+        weight:100,
+        bike:[
+            {
+                name:'bb',
+                speed:10,
+            },
+            {
+                name:'yy',
+                speed:20,
+            }
+        ],
+        eat:function(){
+            alert('eat')
+        }
+
+    };
+
+    let strPerson = JSON.stringify(person)
+    console.log(strPerson)
+
+    let parPerson = JSON.parse(strPerson)
+    console.log(parPerson)
+
+    //可以把物件轉成JOSN 再轉回物件 這樣就能進行複製 並且不是相同的。
+    console.log(person === parPerson)
+
+
+</script>

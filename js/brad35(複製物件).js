@@ -16,11 +16,16 @@
 
 
     function clone(source){
-        if(typeof(source) != 'object') return null;
+        if(source == null ||typeof(source) != 'object') return null;
 
         let target = new Object();
+
         for(let attr in source){
-            target[attr] = source[attr]
+            if(typeof source[attr] != 'object'){
+                target[attr] = source[attr];
+            }else{
+                target[attr] = clone(source[attr]);
+            }       
         }
         return target;
     }

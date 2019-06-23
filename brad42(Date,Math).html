@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<script>
+    Date.prototype.getWeek = function(){
+        let w = this.getDay();
+        let wd = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+        return wd[w]
+    }
+    Date.prototype.getYe = function(){
+       let y = this.getFullYear()-1911;
+       return y
+    }
+
+    function showNow(){
+        let dd = new Date();
+        let newString = "民國" + dd.getYe() + "年" +
+            (dd.getMonth()+1) + "月" +
+            dd.getDate() + "日" +
+            dd.getWeek() + " "+
+            dd.getHours() + ":" +
+            dd.getMinutes()+ ":"+
+            dd.getSeconds(); 
+            document.getElementById('now').innerHTML = newString 
+    }
+    setInterval(showNow,500)
+
+
+    let a = 3.1
+    let b = 3.6
+    let c = 3.7
+
+    console.log(3.4 + ': ' + Math.ceil(a))
+    console.log(3.7 + ': ' +Math.ceil(b))
+    console.log(3 + ': ' + Math.ceil(c))
+    
+    console.log('-------')
+
+    let d = 3.4
+    let e = 3.7
+    let f = 3
+
+    console.log(3.4 + ': ' + Math.floor(d))
+    console.log(3.7 + ': ' +Math.floor(e))
+    console.log(3 + ': ' + Math.floor(f))
+</script>
+目前日期時間:<span id="now"></span>

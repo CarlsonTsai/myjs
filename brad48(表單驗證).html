@@ -1,0 +1,45 @@
+<script src="js/brad23.js"></script>
+
+<script>
+    function test1(){
+        window.open("","myWindow","width=200,height=100")
+    }
+
+    function gotoBackend(){
+        let account = document.getElementById('account').value;
+        let password1 = document.getElementById('password1').value;
+        let password2 = document.getElementById('password2').value;
+        let twid = document.getElementById('twid').value;
+
+        let ret = true;
+
+    
+
+a
+      checkTWId(twid)
+      
+        return ret;
+    }
+    function chSamePassWord(){
+        let password1 = document.getElementById('password1').value;
+        let password2 = document.getElementById('password2').value;
+        if(password1.length>0 && password2.length>0){
+            if(password1 != password2){
+                alert('密碼不同')
+            }
+        }
+    }
+    
+</script>
+<input type="button" onclick="test1()" value="Test1">
+
+<form id="myform" action="test1.php" onsubmit="return gotoBackend();">
+    *Account: <input type="text" id="account" /> <br>
+    *Password1:<input type="password" id="password1" onblur="chSamePassWord()"/> <br>
+    *Password2:<input type="password" id="password2" onblur="chSamePassWord()"/> <br>
+    *TW Id : <input type="text" id="twid" /> <br>
+    Memo: <textarea id="memo"></textarea><br>
+    <!-- 只要有file就要 post -->
+    <input type="file">
+    <input type="submit" value="register">
+</form>
